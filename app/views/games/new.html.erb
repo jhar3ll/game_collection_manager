@@ -1,0 +1,14 @@
+<h1> create a game </h1>
+
+<%= form_for(@game) do |f| %>
+    <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %> 
+    </div>
+    <div>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+    </div>
+    <p> Console <%= f.collection_select :console_id, Console.all, :id, :name %> </p>
+    <%= f.submit "create game" %>
+    <% end %> 

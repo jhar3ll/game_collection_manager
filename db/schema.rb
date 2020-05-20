@@ -20,12 +20,14 @@ ActiveRecord::Schema.define(version: 2020_05_20_002650) do
   end
 
   create_table "games", force: :cascade do |t|
+    t.string "title"
     t.string "genre"
-    t.string "description"
-    t.integer "console_id", null: false
+    t.integer "console_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["console_id"], name: "index_games_on_console_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_002650) do
   end
 
   add_foreign_key "games", "consoles"
+  add_foreign_key "games", "users"
   add_foreign_key "ratings", "games"
   add_foreign_key "ratings", "users"
 end

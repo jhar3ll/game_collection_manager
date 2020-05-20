@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-    has_secure_password
+    
+    validates :username, uniqueness: true, presence: true
     has_many :ratings
-    has_many :games
+    has_many :games, through: :ratings
+
+    has_secure_password
 end
