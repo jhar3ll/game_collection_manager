@@ -1,0 +1,17 @@
+<%= form_for(@rating) do |f| %>
+    <div>
+    <%= f.label :score %>
+    <%= f.text_field :score %> 
+    </div>
+    <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div>
+    <div>
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+    </div>
+    <%= f.hidden_field :game_id %>
+
+    <%= f.submit "submit" %>
+    <% end %>
