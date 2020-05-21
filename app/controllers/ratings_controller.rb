@@ -20,6 +20,12 @@ class RatingsController < ApplicationController
     end 
 
     def index
+        if params[:game_id]
+            @game = Game.find_by_id(params[:game_id])
+            @ratings = @game.ratings
+        else
+            @ratings = Rating.all
+        end
     end 
 
 

@@ -1,9 +1,4 @@
-<h1> Hello, <%= @user.username %> !</h1>
-<h2> Here are your games: </h2>
-
-<% @user.games.each do |game| %>
-    <li>
-    <%= game.title.capitalize %> (<%= game.platform.name %>) <%= link_to "Rate this game", new_game_rating_path(game) %>
-    
-    </li>
-    <% end %>
+<h1> Sign Up or Log In! </h1>
+<%= link_to "Login", login_path %>
+<br>
+<%= link_to "Sign Up", signup_path %>

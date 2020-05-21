@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
 
     def index
-        @user = current_user
-        redirect_to '/' if !@user
-        @games = @user.games.all
+
     end
+
     def new
         @user = User.new 
     end 
