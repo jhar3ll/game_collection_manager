@@ -1,2 +1,0 @@
-class ConsolesController < ApplicationController
-end

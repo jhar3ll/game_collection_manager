@@ -12,22 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2020_05_20_002650) do
 
-  create_table "consoles", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.integer "platform_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["platform_id"], name: "index_games_on_platform_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
     t.string "name"
     t.boolean "cross_platform_compatible"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
-    t.integer "console_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["console_id"], name: "index_games_on_console_id"
-    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_002650) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "games", "consoles"
+  add_foreign_key "games", "platforms"
   add_foreign_key "games", "users"
   add_foreign_key "ratings", "games"
   add_foreign_key "ratings", "users"

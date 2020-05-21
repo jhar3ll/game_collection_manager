@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    def index
+        @user = User.find_by_id(params[:id])
+        redirect_to '/' if !@user
+        @games = @user.games.all
+    end
     def new
         @user = User.new 
     end 
