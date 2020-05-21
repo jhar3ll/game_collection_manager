@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @user = User.find_by_id(params[:id])
+        @user = current_user
         redirect_to '/' if !@user
         @games = @user.games.all
     end
@@ -20,8 +20,9 @@ class UsersController < ApplicationController
     end 
 
     def show
-        @user = User.find_by_id(params[:id])
+        @user = current_user
         redirect_to '/' if !@user
+        @games = @user.games.all
     end 
 
 private 

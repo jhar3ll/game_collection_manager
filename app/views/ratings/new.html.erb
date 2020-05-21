@@ -1,4 +1,4 @@
-<h1> 
+<h1> Rate <%= @rating.game.title.capitalize %>(<%=@rating.game.platform.name%>) </h1>
 
 <%= form_for(@rating) do |f| %>
 
@@ -9,8 +9,10 @@
     <br>
     <br>
     <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.label :"reason for rating:" %>
+    <br>
+    <%= f.text_area :content, size: "100x10" %> 
+    
     </div>
     <%= f.hidden_field :game_id %>
 

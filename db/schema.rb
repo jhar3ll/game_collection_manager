@@ -10,17 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_012732) do
+ActiveRecord::Schema.define(version: 2020_05_21_035115) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "genre"
     t.integer "platform_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id", null: false
     t.index ["platform_id"], name: "index_games_on_platform_id"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "platforms", force: :cascade do |t|

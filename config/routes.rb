@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
+  resources :genres
     get '/' => 'sessions#index'
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/signup' => 'users#new'
     post '/signup' => 'users#create'
-    get '/games' => 'games#new'
+    get '/games/new' => 'games#new'
     post '/games' => 'games#create'
     get '/games/:id' => 'games#show'
     delete '/logout' => 'sessions#destroy'
     get '/platforms' => 'platforms#index'
+    get '/users/:id' => 'users#show'
+
 
   resources :ratings
   resources :games do 
