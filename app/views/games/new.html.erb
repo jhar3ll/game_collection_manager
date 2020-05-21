@@ -9,6 +9,6 @@
     <%= f.label :genre %>
     <%= f.text_field :genre %>
     </div>
-    <p> Console <%= f.collection_select :console_id, Console.all, :id, :name %> </p>
+    <p> Platforms <%= f.collection_select :platform_id, Platform.all, :id, :name %> </p>
     <%= f.submit "create game" %>
     <% end %> 

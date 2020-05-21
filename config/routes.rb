@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     get '/platforms' => 'platforms#index'
 
   resources :ratings
-  resources :games
+  resources :games do 
+    resources :ratings, only: [:new, :index]
+  end 
   resources :platforms
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
