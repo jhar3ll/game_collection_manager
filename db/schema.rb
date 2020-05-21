@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_012004) do
+ActiveRecord::Schema.define(version: 2020_05_21_012732) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_012004) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "score"
-    t.string "title"
-    t.integer "year"
     t.integer "game_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
