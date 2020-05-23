@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_035115) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id", null: false
+    t.integer "genre_id"
     t.index ["platform_id"], name: "index_games_on_platform_id"
     t.index ["user_id"], name: "index_games_on_user_id"
   end

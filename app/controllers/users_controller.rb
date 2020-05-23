@@ -23,7 +23,6 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
         @games = Game.all
 
-        @ratings = current_user.ratings 
     end 
 
 private 

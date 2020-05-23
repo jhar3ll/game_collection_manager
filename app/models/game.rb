@@ -14,4 +14,8 @@ class Game < ApplicationRecord
         errors.add(:title, "already exists!")
     end
    end 
+
+   def self.alpha
+    order(:title)
+ end 
 end

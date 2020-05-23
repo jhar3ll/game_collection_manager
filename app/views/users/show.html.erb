@@ -8,15 +8,3 @@
     </li>
     <% end %>
 
-<h2> Here are the games that you have rated: </h2>
-
-<% @ratings.each do |rating| %> 
-    <li> <%= rating.game.title.capitalize%>(<%= rating.game.platform.name%>)
-        <ul>
-            <li> Score: <%= rating.score %></li>
-            <li> Description: <%= rating.content %></li>
-            <li> Reviewed By: <%=rating.user.username.capitalize %></li>
-        </ul>
-        </li>
-        <br>
-        <% end %>
