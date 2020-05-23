@@ -1,7 +1,8 @@
 <h1> Rate <%= @rating.game.title.capitalize %>(<%=@rating.game.platform.name%>) </h1>
 
-<%= form_for(@rating) do |f| %>
+<%= render 'layouts/errors', locals: {object: @rating} %>
 
+<%= form_for(@rating) do |f| %>
      <div>
     <%= f.label :score %>
     <%= f.number_field :score, min:0, max:5 %> 

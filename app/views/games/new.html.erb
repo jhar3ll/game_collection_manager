@@ -1,5 +1,7 @@
 <h1> create a game </h1>
 
+<%= render 'layouts/errors', locals: {object: @game} %>
+
 <%= form_for(@game) do |f| %>
     <div>
     <%= f.label :title %>
