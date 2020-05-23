@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     delete '/logout' => 'sessions#destroy'
     get '/platforms' => 'platforms#index'
     get '/users/:id' => 'users#show'
+    get '/users/:id/ratings' => 'ratings#show'
 
 
   resources :ratings
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
     resources :ratings, only: [:new, :index]
   end 
   resources :platforms
-  resources :users
+  resources :users do 
+    resources :ratings, only: [:show]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

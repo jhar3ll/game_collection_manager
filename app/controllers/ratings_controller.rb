@@ -17,7 +17,9 @@ class RatingsController < ApplicationController
     end
 
     def show
-        @rating = Rating.find_by_id(params[:id])
+        @user = User.find_by_id(params[:id])
+        @ratings = @user.ratings 
+        @games = @user.games
     end 
 
     def index

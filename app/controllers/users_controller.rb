@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end 
 
     def show
-        @user = current_user
+        @user = User.find_by_id(params[:id])
         redirect_to '/' if !@user
         @games = Game.all
 

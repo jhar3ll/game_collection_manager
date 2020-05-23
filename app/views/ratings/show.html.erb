@@ -1,4 +1,5 @@
-<h2> Here are the games that you have rated: </h2>
+<h1> Hello, <%= @user.username.capitalize %>. </h1>
+    <h2> Here are the games that you have rated: </h2>
 
 <% @ratings.each do |rating| %> 
     <li> <%= rating.game.title.capitalize%>(<%= rating.game.platform.name%>)
