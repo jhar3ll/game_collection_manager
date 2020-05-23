@@ -1,12 +1,12 @@
 <h1> create a game </h1>
 
-<%= render 'layouts/errors', locals: {object: @game} %>
+<%= render partial: 'layouts/errors', locals: {object: @game} %>
 
 <%= form_for(@game) do |f| %>
     <div>
     <%= f.label :title %>
     <%= f.text_field :title %> 
-    </div>
+    </div>  
     <div>
     <p> Genres <%= f.collection_select :genre_id, Genre.all, :id, :title %> </p>
     </div>
