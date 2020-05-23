@@ -9,9 +9,9 @@ class Game < ApplicationRecord
   validates :title, presence: true
   validate :not_duplicate
 
-  def not_duplicate
-    if Game.find_by(title: title, platform_id: platform_id)
-      errors.add(:title, "already exists!")
-  end
- end 
+    def not_duplicate
+      if Game.find_by(title: title, platform_id: platform_id)
+        errors.add(:title, "already exists!")
+    end
+   end 
 end

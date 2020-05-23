@@ -2,7 +2,7 @@
 
 <% @games.each do |game| %>
     <li>
-    <%= game.title.capitalize %> (<%= game.platform.name %>) <%= link_to "Rate", new_game_rating_path(game) %> 
+    <%= game.title.split.map(&:capitalize).join(' ') %> (<%= game.platform.name %>) <%= link_to "Rate", new_game_rating_path(game) %> 
     
     
     </li>

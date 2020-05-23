@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
     def index
-        @games = Game.all
+        @games = Game.order_by_rating
     end 
     
     def new

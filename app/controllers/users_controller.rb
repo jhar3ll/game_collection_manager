@@ -21,7 +21,9 @@ class UsersController < ApplicationController
     def show
         @user = current_user
         redirect_to '/' if !@user
-        @games = @user.games.all
+        @games = Game.all
+
+        @ratings = current_user.ratings 
     end 
 
 private 

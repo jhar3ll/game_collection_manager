@@ -1,9 +1,22 @@
 <h1> Hello, <%= @user.username %> !</h1>
 <h2> Here are some games: </h2>
 
-<% @user.games.each do |game| %>
+<% @games.each do |game| %>
     <li>
     <%= game.title.capitalize %> (<%= game.platform.name %>) <%= link_to "Rate this game", new_game_rating_path(game) %>
     
     </li>
     <% end %>
+
+<h2> Here are the games that you have rated: </h2>
+
+<% @ratings.each do |rating| %> 
+    <li> <%= rating.game.title.capitalize%>(<%= rating.game.platform.name%>)
+        <ul>
+            <li> Score: <%= rating.score %></li>
+            <li> Description: <%= rating.content %></li>
+            <li> Reviewed By: <%=rating.user.username.capitalize %></li>
+        </ul>
+        </li>
+        <br>
+        <% end %>

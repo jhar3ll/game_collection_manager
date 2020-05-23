@@ -26,7 +26,7 @@ class RatingsController < ApplicationController
             @ratings = @game.ratings
         else
             @user = User.find_by_id(params[:user_id])
-            @ratings = Rating.all
+            @ratings = Rating.alpha
         end
     end 
 
