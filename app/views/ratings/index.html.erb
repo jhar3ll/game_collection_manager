@@ -1,9 +1,12 @@
 <h1> Ratings </h1>
 
 <% @ratings.each do |rating| %> 
-    <li> <%= rating.game.title.capitalize%>(<%= rating.game.platform.name%>)
-   Score: <%= rating.score %> 
-   Description: <%= rating.content %>
-   </li>
-   <br>
+<li> <%= rating.game.title.capitalize%>(<%= rating.game.platform.name%>)
+    <ul>
+        <li> Score: <%= rating.score %></li>
+        <li> Description: <%= rating.content %></li>
+        <li> Reviewed By: <%=rating.user.username.capitalize %></li>
+    </ul>
+    </li>
+    <br>
     <% end %>

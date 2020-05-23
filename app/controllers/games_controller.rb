@@ -12,7 +12,7 @@ class GamesController < ApplicationController
         @game = current_user.games.build(game_params)
         @game.user_id = session[:user_id]
         if @game.save
-            redirect_to game_path(@game)
+            redirect_to games_path
         else 
             render :new
         end 
