@@ -2,7 +2,7 @@
 <h2> Here are the games that you have rated: </h2>
 
 <% @ratings.each do |rating| %> 
-    <li> <%= rating.game.title.capitalize%> (<%= rating.game.platform.name%>)
+    <li> <%= rating.game.title.capitalize%> (<%= rating.game.platform.name%>) 
         <ul>
             <li> Score: <%= rating.score %></li>
             <li> Description: <%= rating.content %></li>

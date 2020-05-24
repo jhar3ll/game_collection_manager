@@ -8,6 +8,11 @@ class SessionsController < ApplicationController
     end 
 
     def create 
+        if params[:provider] == 'facebook'
+            @user = User.create_by_facebook_omniauth(auth)
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else 
         @user = User.find_by(username: params[:user][:username])
      
         if @user.try(:authenticate, params[:user][:password])
@@ -17,6 +22,7 @@ class SessionsController < ApplicationController
         flash[:error] = "Login info incorrect. Please try again!"
         redirect_to login_path
         end 
+      end 
     end 
 
     def omniauth

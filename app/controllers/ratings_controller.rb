@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new
      @game = Game.find_by_id(params[:game_id])

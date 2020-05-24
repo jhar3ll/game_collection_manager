@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get '/ratings/five_stars' => 'ratings#index'
     get '/ratings/' => 'ratings#show'
 
-
+    root 'session#index'
   resources :ratings
   resources :games do 
     resources :ratings, only: [:new, :index]
