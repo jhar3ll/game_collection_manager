@@ -13,8 +13,10 @@ Genre.create(title: 'Fighting')
 Genre.create(title: 'Sports')
 Genre.create(title: 'Racing')
 Genre.create(title: 'RPG')
+Genre.create(title: 'Puzzle')
 
 Platform.create(name: 'Nintendo')
 Platform.create(name: 'PC')
 Platform.create(name: 'Playstation')
 Platform.create(name: 'Xbox')
+

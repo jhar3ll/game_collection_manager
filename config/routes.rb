@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/platforms' => 'platforms#index'
     get '/users/:id' => 'users#show'
     get '/users/:id/ratings' => 'ratings#show'
+    get '/auth/facebook/callback' => 'sessions#omniauth'
 
 
   resources :ratings
