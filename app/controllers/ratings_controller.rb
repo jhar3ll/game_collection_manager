@@ -22,13 +22,7 @@ class RatingsController < ApplicationController
     end 
 
     def index
-        if params[:game_id]
-            @game = Game.find_by_id(params[:game_id])
-            @ratings = @game.ratings
-        else
-            @user = User.find_by_id(params[:user_id])
-            @ratings = Rating.alpha
-        end
+        @ratings = Rating.five_star_rating
     end 
 
 

@@ -6,6 +6,9 @@ class Rating < ApplicationRecord
   validates :content, presence: true 
   validates :game, uniqueness: { scope: :user, message: "has already been rated by this user!"}
 
+  def self.five_star_rating
+    where("score = 5")
+  end 
   def self.alpha
     order(score: :desc)
  end 

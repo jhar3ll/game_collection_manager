@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :genres
     get '/' => 'sessions#index'
-    get '/users' => 'users#index'
     get '/users/new' => 'users#new'
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
@@ -15,9 +14,12 @@ Rails.application.routes.draw do
     delete '/games/:id' => 'games#destroy'
     delete '/logout' => 'sessions#destroy'
     get '/platforms' => 'platforms#index'
+    get '/users/' => 'users#index'
     get '/users/:id' => 'users#show'
     get '/users/:id/ratings' => 'ratings#show'
     get '/auth/facebook/callback' => 'sessions#omniauth'
+    get '/users/most_rated' => 'users#index'
+    get '/ratings/five_stars' => 'ratings#index'
 
 
   resources :ratings
