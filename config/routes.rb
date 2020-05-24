@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/auth/facebook/callback' => 'sessions#omniauth'
     get '/users/most_rated' => 'users#index'
     get '/ratings/five_stars' => 'ratings#index'
+    get '/ratings/' => 'ratings#show'
 
 
   resources :ratings

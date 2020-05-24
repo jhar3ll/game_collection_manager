@@ -17,8 +17,11 @@ class RatingsController < ApplicationController
     end
 
     def show
-        @user = User.find_by_id(params[:id])
-        @ratings = @user.ratings 
+        if @user = User.find_by_id(params[:id])
+           @ratings = @user.ratings
+        else 
+            @ratings = Rating.all 
+        end
     end 
 
     def index
