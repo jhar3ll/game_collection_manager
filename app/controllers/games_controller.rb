@@ -2,11 +2,11 @@ class GamesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @games = Game.alpha
+    @games = Game.alpha
     end 
     
     def new
-     @game = Game.new 
+    @game = Game.new 
     end 
 
     def create
