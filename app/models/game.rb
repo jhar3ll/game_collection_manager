@@ -7,13 +7,16 @@ class Game < ApplicationRecord
   has_many :users, through: :ratings, :dependent => :destroy
 
   validates :title, presence: true
-  validate :not_duplicate
+  validates :title, uniqueness: { scope: [:platform, :genre], message: "is already in the list of games!"}
 
-    def not_duplicate
-      if Game.find_by(title: title, platform_id: platform_id)
-        errors.add(:title, "already exists!")
-    end
-   end 
+    #GENRES = ["fps", "action", "adventure", "shooting", "battle royale", "fighting", "sports", "puzzle", "RPG", "racing"]
+    #PLATFORMS = ["nintendo", "PC", "xbox", "playstation"]
+
+   # def not_duplicate
+      #if Game.find_by(title: title, platform_id: platform_id)
+        #errors.add(:title, "already exists!")
+   # end
+  # end 
 
    def self.alpha
     order(:title)

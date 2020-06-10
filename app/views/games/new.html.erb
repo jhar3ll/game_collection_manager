@@ -13,3 +13,8 @@
     <p> Platforms <%= f.collection_select :platform_id, Platform.alpha, :id, :name %> </p>
     <%= f.submit "create game" %>
     <% end %> 
+
+
+
+    <% #Genres <%= select_tag "Genre", options_for_select(Game::GENRES) %>
+    <% #Platforms <%= select_tag "Platform", options_for_select(Game::PLATFORMS) %>

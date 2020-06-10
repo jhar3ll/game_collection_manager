@@ -1,16 +1,20 @@
 class SessionsController < ApplicationController
 
     def index
-    end 
+        if logged_in?
+            redirect_to user_path(current_user) 
+        end 
+    end  
 
-    def destroy
-        session.delete(:user_id)
-        redirect_to '/'
+    def new 
+        if logged_in?
+        redirect_to user_path(current_user) 
+        end 
     end 
 
     def create 
         if params[:provider] == 'facebook'
-            @user = User.create_by_facebook_omniauth(auth)
+            @user = User.create_by_facebook_omniauth(auth) 
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
@@ -26,12 +30,17 @@ class SessionsController < ApplicationController
       end 
     end 
 
+    def destroy
+        session.delete(:user_id)
+        redirect_to '/'
+    end
+
     def omniauth
         @user = User.create_by_facebook_omniauth(auth)
 
             session[:user_id] = @user.id
             redirect_to user_path(@user)
-        end 
+    end 
 
     private 
 
