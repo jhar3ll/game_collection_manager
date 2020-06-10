@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
     def create 
         if params[:provider] == 'facebook'
-            @user = User.create_by_facebook_omniauth(auth) 
+            @user = User.find_or_create_by_facebook_omniauth(auth) 
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
