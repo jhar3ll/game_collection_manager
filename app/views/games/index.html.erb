@@ -1,9 +1,13 @@
 <h2> Games: </h2>
 
+
+<%= form_tag(games_path, method: :get) do %>
+<%= text_field_tag(:search, params[:search]) %>
+<%= submit_tag ("search") %>
+    <% end %> 
+
 <% @games.each do |game| %>
     <li>
     <%= game.title.split.map(&:capitalize).join(' ') %> (<%= game.platform.name %>) <%= link_to "Rate", new_game_rating_path(game) %> 
-    
-    
     </li>
     <% end %>

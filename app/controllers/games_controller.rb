@@ -2,8 +2,8 @@ class GamesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-    @games = Game.alpha
-    end 
+    @games = Game.search(params[:search])
+     end 
     
     def new
     @game = Game.new 
@@ -28,6 +28,6 @@ class GamesController < ApplicationController
 private
 
  def game_params
-    params.require(:game).permit(:title, :genre_id, :rating, :platform_id)
+    params.require(:game).permit(:title, :genre_id, :rating, :platform_id, :search)
  end 
 end 

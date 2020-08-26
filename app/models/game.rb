@@ -18,6 +18,19 @@ class Game < ApplicationRecord
    # end
   # end 
 
+  def self.search(search)
+    if search 
+      game = Game.find_by(title: search)
+      if game 
+        self.where(game_id: game)
+      else 
+        Game.all
+      end 
+    else 
+      Game.all
+    end
+  end 
+
    def self.alpha
     order(:title)
  end 

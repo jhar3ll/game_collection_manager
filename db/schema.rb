@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_035115) do
+ActiveRecord::Schema.define(version: 2020_05_21_034920) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "platform_id", null: false
     t.integer "user_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id"
+    t.index ["genre_id"], name: "index_games_on_genre_id"
     t.index ["platform_id"], name: "index_games_on_platform_id"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_035115) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "games", "genres"
   add_foreign_key "games", "platforms"
   add_foreign_key "games", "users"
   add_foreign_key "ratings", "games"
