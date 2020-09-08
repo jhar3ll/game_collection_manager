@@ -2,7 +2,7 @@ class GamesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-    @games = Game.search(params[:search])
+    @games = Game.ordered_by_title
      end 
     
     def new

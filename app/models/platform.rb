@@ -1,7 +1,5 @@
 class Platform < ApplicationRecord
     has_many :games
 
-    def self.alpha
-        order(:name)
-     end 
+    scope :ordered_by_name, -> { order(name: :asc)}
 end

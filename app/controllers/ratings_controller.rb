@@ -21,7 +21,7 @@ class RatingsController < ApplicationController
         if @user = User.find_by_id(params[:id])
            @ratings = @user.ratings
         else 
-            @ratings = Rating.alpha 
+            @ratings = Rating.ordered_by_score 
         end
     end 
 
