@@ -3,7 +3,6 @@ class User < ApplicationRecord
     has_many :ratings
     has_many :games, through: :ratings
 
-
     has_secure_password
 
     def self.find_or_create_by_facebook_omniauth(auth)
