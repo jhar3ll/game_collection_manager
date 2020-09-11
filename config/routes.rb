@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     post '/signup' => 'users#create'
 
     get '/games/new' => 'games#new'
+    get '/games' => 'games#index', as: :games
+    get '/games/:id' => 'games#show'
     post '/games' => 'games#create'
-    get '/games' => 'games#index'
+    
 
     get '/users/' => 'users#index'
     get '/users/:id' => 'users#show'
