@@ -8,9 +8,9 @@
     <%= f.text_field :title %> 
     </div>  
     <div>
-    <p> Genres <%= f.collection_select :genre_id, Genre.alpha, :id, :title %> </p>
+    <p> Genres <%= f.collection_select :genre_id, Genre.ordered_by_title, :id, :title %> </p>
     </div>
-    <p> Platforms <%= f.collection_select :platform_id, Platform.alpha, :id, :name %> </p>
+    <p> Platforms <%= f.collection_select :platform_id, Platform.ordered_by_name, :id, :name %> </p>
     <%= f.submit "create game" %>
     <% end %> 
 
