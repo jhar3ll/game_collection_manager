@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get '/users/:id' => 'users#show'
     get '/users/:id/ratings' => 'ratings#show'
 
- 
+  
     
     get '/ratings/five_stars' => 'ratings#index'
     get '/ratings/' => 'ratings#show'
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end 
   resources :platforms
   resources :users do 
-    resources :ratings, only: [:show]
+    resources :ratings, only: [:show]   
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
