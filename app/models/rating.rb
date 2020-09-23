@@ -6,7 +6,6 @@ class Rating < ApplicationRecord
   validates :content, presence: true 
   validates :game, uniqueness: { scope: :user, message: "has already been rated by this user!"}
 
-  scope :ordered_by_score, -> { order(score: :desc)}
+  scope :ordered_by_create, -> { order(created_at: :desc)}
   scope :five_star_rating, -> { where("score = 5")}
-
 end

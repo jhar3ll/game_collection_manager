@@ -1,6 +1,10 @@
 class RatingsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+    def index
+        @ratings = Rating.ordered_by_create
+    end 
+
     def new
      @game = Game.find_by_id(params[:game_id])
      @rating = @game.ratings.build
@@ -21,14 +25,13 @@ class RatingsController < ApplicationController
         if @user = User.find_by_id(params[:id])
            @ratings = @user.ratings
         else 
-            @ratings = Rating.ordered_by_score 
+            @ratings = Rating.ordered_by_create 
         end
     end 
 
-    def index
+    def five_star_rating
         @ratings = Rating.five_star_rating
     end 
-
 
     private
 

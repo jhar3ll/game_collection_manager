@@ -22,6 +22,10 @@ class GamesController < ApplicationController
         @game = Game.find_by_id(params[:id])
     end
 
+    def edit
+        @game = Game.find_by_id(params[:id])
+    end 
+
  end 
 
 private
