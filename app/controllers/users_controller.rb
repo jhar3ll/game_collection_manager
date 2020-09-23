@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     end
 
     def new
+        if logged_in?
+            redirect_to user_path(current_user) 
+            end 
+
         @user = User.new 
     end 
 
@@ -30,5 +34,4 @@ private
     def user_params
         params.require(:user).permit(:username, :password)
     end
-    
 end 

@@ -1,6 +1,0 @@
-<h1> Users: </h1> 
-    <% @users.each do |user| %>
-        <li>
-        <%= user.username.capitalize%> <%= link_to "Profile", user_path(user) %>
-        </li>
-        <% end %>

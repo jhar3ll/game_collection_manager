@@ -3,6 +3,8 @@
 
 <% @ratings.each do |rating| %> 
     <li> <%= rating.game.title.capitalize%> (<%= rating.game.platform.name%>) 
+         <%= link_to "Edit", edit_rating_path %>
+         <%= link_to "Delete", rating_path(rating), method: :delete, data: { confirm: "Delete this rating?" } %>
         <ul>
             <li> Score: <%= rating.score %></li>
             <li> Description: <%= rating.content %></li>

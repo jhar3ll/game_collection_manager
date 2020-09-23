@@ -1,0 +1,23 @@
+<h1> Edit: </h1>
+<h2> <%= @rating.game.title.capitalize %> (<%=@rating.game.platform.name%>) </h2>
+
+<%= render partial: 'layouts/errors', locals: {object: @rating} %>
+
+<%= form_for(@rating) do |f| %>
+  <%= f.hidden_field :game_id %>
+  <%= f.hidden_field :user_id %>
+  
+  <div>
+    <%= f.label :score %>
+    <%= f.number_field :score, min:0, max:5 %> 
+    </div>
+    <br>
+    <br>
+    <div>
+    <%= f.label :"reason for rating:" %>
+    <br>
+    <%= f.text_area :content, size: "100x10" %> 
+    
+    </div>
+    <%= f.submit "Update" %>
+    <% end %>

@@ -12,11 +12,13 @@ class GamesController < ApplicationController
     def create
         @game = current_user.games.build(game_params)
         @game.user_id = session[:user_id]
+
         if @game.save
             redirect_to games_path
         else 
             render :new
         end 
+    end 
 
     def show 
         @game = Game.find_by_id(params[:id])
@@ -25,7 +27,6 @@ class GamesController < ApplicationController
     def edit
         @game = Game.find_by_id(params[:id])
     end 
-
  end 
 
 private
@@ -33,5 +34,4 @@ private
  def game_params
     params.require(:game).permit(:title, :genre_id, :rating, :platform_id)
  end 
-
 end 

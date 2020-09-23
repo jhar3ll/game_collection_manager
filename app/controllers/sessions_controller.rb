@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
     end 
 
     def create 
+        if logged_in?
+            redirect_to user_path(current_user) 
+            end 
+            
         if params[:provider] == 'facebook'
             @user = User.find_or_create_by_facebook_omniauth(auth)
             @user.username = username[:info][:first_name]
@@ -38,8 +42,8 @@ class SessionsController < ApplicationController
 
     def omniauth
         @user = User.find_or_create_by_facebook_omniauth(auth)
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end 
 
     private 
