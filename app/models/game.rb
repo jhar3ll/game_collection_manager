@@ -11,4 +11,16 @@ class Game < ApplicationRecord
 
   scope :ordered_by_title, -> { order(title: :asc)}
 
+  def self.search(search)
+    if search
+      game = Game.find_by(title: search)
+      if game 
+        where(id: game) 
+      else
+        Game.ordered_by_title
+      end 
+    else
+      Game.ordered_by_title
+  end
+ end
 end
